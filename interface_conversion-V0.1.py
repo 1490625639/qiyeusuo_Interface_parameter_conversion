@@ -6,7 +6,7 @@ from tkinter.colorchooser import *
 import random
 import hashlib
 
-"""u8fyhaoiuehfoauehwofuaaoiuhf"""
+"""u8fyhaoiuehfoauaaoiuhf"""
 class Application(Frame):
     def __init__(self, master=None):
         super().__init__(master)
