@@ -6,7 +6,7 @@ from tkinter.colorchooser import *
 import random
 import hashlib
 #00点29分更新
-#更新内容：注释测试
+#更新内容：注释测试收哦我
 class Application(Frame):
     def __init__(self, master=None):
         super().__init__(master)
