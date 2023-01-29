@@ -5,6 +5,7 @@ from tkinter.filedialog import *
 from tkinter.colorchooser import *
 import random
 import hashlib
+import time
 #00点29分更新
 #更新内容：注释测试收哦我
 class Application(Frame):
@@ -42,9 +43,12 @@ class Application(Frame):
         self.x_qys_accesstoken = self.entry1.get()
 
         AppSecret = self.entry2.get()
-        x_qys_timestamp = 0
-        a = str(self.x_qys_accesstoken + AppSecret + "0" )
-        #        print("加密前的x_qys_signature"+a)
+        #时间戳强转
+        temp=int (time.time() * 1000)
+        self.x_qys_timestamp = str (temp)
+
+        a = str(self.x_qys_accesstoken + AppSecret + self.x_qys_timestamp )
+        print("加密前的x_qys_signature"+a)
         # x_qys_signature
         input_name = hashlib.md5()
         input_name.update(a.encode("utf-8"))
@@ -64,7 +68,7 @@ class Application(Frame):
         self.label4.pack()
         v4 = StringVar()
         self.entry4 = Entry(self, textvariable=v4, width=40)
-        v4.set("0")
+        v4.set(self.x_qys_timestamp)
         self.entry4.pack()
 
         self.label5 = Label(self, text="x-qys-signature")
